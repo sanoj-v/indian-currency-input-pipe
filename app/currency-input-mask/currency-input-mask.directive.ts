@@ -2,11 +2,11 @@ import {
   OnInit,
   Directive,
   HostListener,
-  ElementRef, forwardRef
+  ElementRef, forwardRef, OnChanges
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
-import { CurrencyPipe} from './currency.pipe';
+import { CurrencyPipe } from './currency.pipe';
 
 export const CURRENCY_INPUT_MASK_DIRECTIVE_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -22,7 +22,7 @@ export const CURRENCY_INPUT_MASK_DIRECTIVE_VALUE_ACCESSOR: any = {
     CurrencyPipe
   ]
 })
-export class CurrencyInputMaskDirective implements ControlValueAccessor, OnInit {
+export class CurrencyInputMaskDirective implements ControlValueAccessor, OnInit, OnChanges {
   private el: HTMLInputElement;
   private onModelChange: Function;
   private onModelTouched: Function;
@@ -37,6 +37,12 @@ export class CurrencyInputMaskDirective implements ControlValueAccessor, OnInit 
 
   ngOnInit() {
     this.el = this.elementRef.nativeElement;
+    console.log(this.el,"<<<<ngOnInit>>>>");
+  }
+
+  ngOnChanges() {
+    this.el = this.elementRef.nativeElement;
+    console.log(this.el,"<<<<ngOnChanges>>>>");
   }
 
   @HostListener('focus', ['$event'])
