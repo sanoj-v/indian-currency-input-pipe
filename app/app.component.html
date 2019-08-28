@@ -1,12 +1,22 @@
 <table>
-  <tr>
-    <td>
-      <input
+	<tr>
+		<td>
+			Input tag
+		</td>
+		<td>
+			<input
         size="10"
         [(ngModel)]="moneyRemaining"
         appCurrencyInputMask
       >
     </td>
+    </tr>
+    <tr>
+     <td>
+     Span tag
+    </td>
+    <td>
+      <span>{{moneyRemaining | currency}}</span>
+    </td>
   </tr>
 </table>
-<span>{{moneyRemaining | currency}}</span>
