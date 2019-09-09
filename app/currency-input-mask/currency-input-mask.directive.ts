@@ -37,12 +37,10 @@ export class CurrencyInputMaskDirective implements ControlValueAccessor, OnInit,
 
   ngOnInit() {
     this.el = this.elementRef.nativeElement;
-    console.log(this.el,"<<<<ngOnInit>>>>");
   }
 
   ngOnChanges() {
     this.el = this.elementRef.nativeElement;
-    console.log(this.el,"<<<<ngOnChanges>>>>");
   }
 
   @HostListener('focus', ['$event'])
