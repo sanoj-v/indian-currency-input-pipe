@@ -17,7 +17,6 @@ export class CurrencyPipe implements PipeTransform {
       if (result.length > 1) {
         output += "." + result[1];
       }
-      console.log(output, result)
       return currencySymbol + output;
     }
 
